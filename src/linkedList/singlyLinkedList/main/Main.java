@@ -33,6 +33,5 @@ public class Main {
         System.out.print("Updated ");
         linkList.traverse();
         System.out.println("Searched element is present or not : " + linkList.search(20));
-
     }
 }
