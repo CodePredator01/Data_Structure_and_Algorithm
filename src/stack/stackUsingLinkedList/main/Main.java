@@ -8,5 +8,18 @@
 
 package stack.stackUsingLinkedList.main;
 
+import stack.stackUsingLinkedList.implementation.StackUsingLinkedListImp;
+
 public class Main {
+    public static void main(String[] args) {
+        StackUsingLinkedListImp stack = new StackUsingLinkedListImp();
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.traverse();
+        stack.peek();
+        stack.pop();
+        stack.traverse();
+        System.out.println(stack.size());
+    }
 }

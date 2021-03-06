@@ -9,4 +9,10 @@
 package stack.stackUsingLinkedList.myInterface;
 
 public interface StackADT {
+    void push(int data);
+    void peek();
+    void pop();
+    boolean isEmpty();
+    int size();
+    void traverse();
 }
