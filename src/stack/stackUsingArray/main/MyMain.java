@@ -6,9 +6,9 @@
  * File: MyMain.java
  * */
 
-package stackUsingArray.main;
+package stack.stackUsingArray.main;
 
-import stackUsingArray.implementation.MyStack;
+import stack.stackUsingArray.implementation.MyStack;
 
 public class MyMain {
     public static void main(String[] args) {

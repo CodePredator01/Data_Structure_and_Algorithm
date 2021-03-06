@@ -6,9 +6,9 @@
  * File: MyStack.java
  * */
 
-package stackUsingArray.implementation;
+package stack.stackUsingArray.implementation;
 
-import stackUsingArray.myInterface.StackADT;
+import stack.stackUsingArray.myInterface.StackADT;
 
 public class MyStack implements StackADT {
     // MAX_CAPACITY
@@ -33,7 +33,7 @@ public class MyStack implements StackADT {
         if (isEmpty()) {
             top++;
             arr[top] = element;
-            System.out.println("Element Add ");
+            System.out.println("Element Added !");
         }else{
             System.out.println("Stack Overflow !");
         }
@@ -74,6 +74,7 @@ public class MyStack implements StackADT {
         return top + 1;
     }
 
+    @Override
     public boolean search(int searchKey) {
         boolean response = false;
         for (int i = 0; i <= top; i++) {
@@ -85,6 +86,7 @@ public class MyStack implements StackADT {
         return response;
     }
 
+    @Override
     public void traverse() {
         for (int i = 0; i <= top; i++) {
             System.out.print(arr[i] + ", ");

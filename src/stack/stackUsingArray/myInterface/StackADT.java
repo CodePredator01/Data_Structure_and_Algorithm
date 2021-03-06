@@ -6,7 +6,7 @@
  * File: StackADT.java
  * */
 
-package stackUsingArray.myInterface;
+package stack.stackUsingArray.myInterface;
 
 public interface StackADT {
     void push(int data);
@@ -14,4 +14,6 @@ public interface StackADT {
     int peek();
     boolean isEmpty();
     int size();
+    void traverse();
+    boolean search(int searchKey);
 }
