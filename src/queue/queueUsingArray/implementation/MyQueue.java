@@ -14,86 +14,59 @@ package queue.queueUsingArray.implementation;
 import queue.queueUsingArray.myInterface.QueueADT;
 
 public class MyQueue implements QueueADT {
-        private int capacity;
-        int queueArr[];
-        int front;
-        int rear;
-        int currentSize = 0;
+    public static final int MAX_VALUE = 1000;
+    public int[] arr;
+    int capacity;
+    int front;
+    int rear;
+    int size = 0;
 
-        public MyQueue(int sizeOfQueue) {
-            this.capacity = sizeOfQueue;
-            front = 0;
-            rear = -1;
-            queueArr = new int[this.capacity];
-        }
+    public MyQueue(int capacity) {
+        this.front = 0;
+        this.rear = -1;
+        this.arr = new int[capacity];
+    }
 
-        /**
-         * this method is used to add element in the queue
-         *
-         * @param data
-         */
-        public void enqueue(int data) {
-            if (isFull()) {
-                System.out.println("Queue is full!! Can not add more elements");
-            } else {
-                rear++;
-                if (rear == capacity - 1) {
-                    rear = 0;
-                }
-                queueArr[rear] = data;
-                currentSize++;
-                System.out.println(data + " added to the queue");
-            }
-        }
+    @Override
+    public void enqueue(int element) {
+        if (isEmpty()) {
+            rear++;
+            arr[rear] = element;
 
-        /**
-         * This method removes an element from the front of the queue
-         */
-        public void dequeue() {
-            if (isEmpty()) {
-                System.out.println("Queue is empty!! Can not dequeue element");
-            } else {
-                front++;
-                if (front == capacity - 1) {
-                    System.out.println(queueArr[front - 1] + " removed from the queue");
-                    front = 0;
-                } else {
-                    System.out.println(queueArr[front - 1] + " removed from the queue");
-                }
-                currentSize--;
-            }
+            size++;
+        } else {
+            System.out.println("Overflow !");
         }
+    }
 
-        /**
-         * This method is use to check if element is full or not
-         *
-         * @return boolean
-         */
-        public boolean isFull() {
-            if (currentSize == capacity) {
-                return true;
-            }
-            return false;
-        }
+    @Override
+    public void dequeue() {
+        int response = 0;
+        if (!isEmpty()) {
+            response = arr[front];
+            front++;
+            System.out.println(response);
 
-        /**
-         * This method is use to check if element is empty or not
-         *
-         * @return
-         */
-        public boolean isEmpty() {
+        }
+    }
 
-            if (currentSize == 0) {
-                return true;
-            }
-            return false;
-        }
-        public int peek(){
-            return 0;
-        }
+    @Override
+    public int peek() {
+        return 0;
+    }
 
-        public int size(){
-            return 0;
-        }
-        // arr[rear%size]
+    @Override
+    public boolean isEmpty() {
+        return size < MAX_VALUE - 1;
+    }
+
+    @Override
+    public boolean isFull() {
+        return size == MAX_VALUE;
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
 }

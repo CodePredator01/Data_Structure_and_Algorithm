@@ -11,7 +11,8 @@ package queue.priorityQueue.implmentation;
 import queue.priorityQueue.myInterface.PriorityQueueADT;
 
 public class PriorityQueueImp<E extends Comparable<E>> implements PriorityQueueADT<E> {
-    int arr[];
+    E[] br;
+    int[] arr;
     int front;
     int rear;
     int size;
@@ -56,7 +57,6 @@ public class PriorityQueueImp<E extends Comparable<E>> implements PriorityQueueA
     }
 
     // rearrange generic
-    E[] br;
     private void rearrangeGeneric(){
         for (int i = rear; i > front; i--) {
             if (br[i].compareTo(br[i-1]) >= 1){

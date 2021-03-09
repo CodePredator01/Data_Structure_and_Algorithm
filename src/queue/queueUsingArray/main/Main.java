@@ -12,19 +12,11 @@ import queue.queueUsingArray.implementation.MyQueue;
 
 public class Main {
     public static void main(String[] args) {
-        MyQueue queue = new MyQueue(5);
-        queue.enqueue(6);
+        MyQueue queue = new MyQueue(10);
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(40);
+        queue.enqueue(50);
         queue.dequeue();
-        queue.enqueue(3);
-        queue.enqueue(99);
-        queue.enqueue(56);
-        queue.dequeue();
-        queue.enqueue(43);
-        queue.dequeue();
-        queue.enqueue(89);
-        queue.enqueue(77);
-        queue.dequeue();
-        queue.enqueue(32);
-        queue.enqueue(232);
     }
 }
