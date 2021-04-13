@@ -28,7 +28,7 @@ public class MyBinarySearchTree<E extends Comparable> {
                 }
             }
             // previous is the node, whose child will be data
-            if (data.compareTo(previous.getData()) <= 0)){
+            if (data.compareTo(previous.getData()) <= 0) {
                 previous.setRightChild(node);
             }
         }
