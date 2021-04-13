@@ -1,4 +1,4 @@
-package main;
+package tree.binarySearchTreeAssignment.main;
 
 public class MyMain {
     public static void main(String[] args) {
