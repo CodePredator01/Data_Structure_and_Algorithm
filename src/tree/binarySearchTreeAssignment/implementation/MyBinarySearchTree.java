@@ -1,59 +1,80 @@
 package tree.binarySearchTreeAssignment.implementation;
 
+import myinterface.Node;
 import tree.binarySearchTreeAssignment.myInterface.BinarySearchTreeADT;
-import tree.binarySearchTreeAssignment.myInterface.Node;
 
 public class MyBinarySearchTree<E extends Comparable<E>> implements BinarySearchTreeADT<E> {
-    //complete this class
-    public Node root;
+    Node<E> root;
 
     @Override
     public void insert(E data) {
-        tree.binarySearchTreeAssignment.implementation.Node<E> node = new tree.binarySearchTreeAssignment.implementation.Node<E>((Integer) data);
-        // isEmpty()
-        if (root == null) {
-            root = (Node) node;
-        } else {
-            tree.binarySearchTreeAssignment.implementation.Node<E> temp = (tree.binarySearchTreeAssignment.implementation.Node<E>) root;
-            tree.binarySearchTreeAssignment.implementation.Node<E> previous = null;
-            while (temp != null) {
-                previous = temp;
-                if (data.compareTo(temp.data()) <= 0) {
-                    temp = temp.left();
+        if (root == null)
+            root = new Node<>(data);
+        else {
+            Node<E> current = root;
+            Node<E> temp = new Node<>(data);
+            while (true) {
+                if (data.compareTo(current.data) <= 0) {
+                    current = current.left;
                 } else {
-                    temp = temp.right();
+                    current = current.right;
                 }
-            }
-            // previous is the node, whose child will be data
-            if (data.compareTo(previous.data()) <= 0) {
-                previous.right(node);
+                if (current == null) {
+                    current = temp;
+                    break;
+                }
             }
         }
     }
 
     @Override
     public boolean search(E searchElement) {
+        Node<E> current = root;
+        while (current != null) {
+            if (searchElement.compareTo(current.data) == -1)
+                current = current.left;
+            else if (searchElement.compareTo(current.data) == 1)
+                current = current.right;
+            else
+                return true;
+        }
         return false;
     }
 
     @Override
-    public void inOrder(Node<E> node) {
-
+    public void inOrder(tree.binarySearchTreeAssignment.myInterface.Node<E> node) {
+        if (node == null)
+            return;
+        inOrder(node.left);
+        System.out.println(node.data);
+        inOrder(node.right);
     }
 
     @Override
-    public void preOrder(Node<E> node) {
-
+    public void preOrder(tree.binarySearchTreeAssignment.myInterface.Node<E> node) {
+        if (node == null)
+            return;
+        System.out.println(node.data);
+        preOrder(node.left);
+        preOrder(node.right);
     }
 
     @Override
-    public void postOrder(Node<E> node) {
-
+    public void postOrder(tree.binarySearchTreeAssignment.myInterface.Node<E> node) {
+        if (node == null)
+            return;
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.println(node.data);
     }
 
     @Override
-    public void reverseInOrder(Node<E> node) {
-
+    public void reverseInOrder(tree.binarySearchTreeAssignment.myInterface.Node<E> node) {
+        if (node == null)
+            return;
+        reverseInOrder(node.right);
+        System.out.println(node.data);
+        reverseInOrder(node.left);
     }
 
     @Override
@@ -62,8 +83,9 @@ public class MyBinarySearchTree<E extends Comparable<E>> implements BinarySearch
     }
 
     @Override
-    public int height(Node<E> node) {
-        return 0;
+    public int height(tree.binarySearchTreeAssignment.myInterface.Node<E> node) {
+        if (node == null)
+            return 0;
+        return Math.max(height(node.left), height(node.right)) + 1;
     }
-
 }
