@@ -14,4 +14,20 @@ public class Node<E extends Comparable<E>> implements myinterface.Node<E> {
         this.right = null;
         this.height = 0;
     }
+
+    public E data() {
+        return null;
+    }
+
+    public Node<E> left() {
+        return null;
+    }
+
+    public Node<E> right() {
+        return null;
+    }
+
+    public Node<E> right(Node<E> node) {
+        return null;
+    }
 }

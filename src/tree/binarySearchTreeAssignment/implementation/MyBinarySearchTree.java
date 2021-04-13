@@ -5,32 +5,28 @@ import tree.binarySearchTreeAssignment.myInterface.Node;
 
 public class MyBinarySearchTree<E extends Comparable<E>> implements BinarySearchTreeADT<E> {
     //complete this class
-    private Node root;
-
-    public Node getRoot() {
-        return root;
-    }
+    public Node root;
 
     @Override
     public void insert(E data) {
-        tree.binarySearch.insertion.Node<E> node = new tree.binarySearch.insertion.Node<>(data);
+        tree.binarySearchTreeAssignment.implementation.Node<E> node = new tree.binarySearchTreeAssignment.implementation.Node<E>((Integer) data);
         // isEmpty()
         if (root == null) {
             root = (Node) node;
         } else {
-            tree.binarySearch.insertion.Node<E> temp = (tree.binarySearch.insertion.Node<E>) root;
-            tree.binarySearch.insertion.Node<E> previous = null;
+            tree.binarySearchTreeAssignment.implementation.Node<E> temp = (tree.binarySearchTreeAssignment.implementation.Node<E>) root;
+            tree.binarySearchTreeAssignment.implementation.Node<E> previous = null;
             while (temp != null) {
                 previous = temp;
-                if (data.compareTo(temp.getData()) <= 0) {
-                    temp = temp.getLeftChild();
+                if (data.compareTo(temp.data()) <= 0) {
+                    temp = temp.left();
                 } else {
-                    temp = temp.getRightChild();
+                    temp = temp.right();
                 }
             }
             // previous is the node, whose child will be data
-            if (data.compareTo(previous.getData()) <= 0) {
-                previous.setRightChild(node);
+            if (data.compareTo(previous.data()) <= 0) {
+                previous.right(node);
             }
         }
     }
